@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aether - Organizador de Rotinas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Elementos 3D Flutuantes ao Fundo -->
+  <div class="bg-3d-container">
+    <div class="shape-3d cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="shape-3d pyramid">
+      <div class="p-face p-front"></div>
+      <div class="p-face p-back"></div>
+      <div class="p-face p-left"></div>
+      <div class="p-face p-right"></div>
+      <div class="p-face p-bottom"></div>
+    </div>
+
+    <div class="shape-3d octahedron">
+      <div class="o-face o-top1"></div>
+      <div class="o-face o-top2"></div>
+      <div class="o-face o-top3"></div>
+      <div class="o-face o-top4"></div>
+      <div class="o-face o-bot1"></div>
+      <div class="o-face o-bot2"></div>
+      <div class="o-face o-bot3"></div>
+      <div class="o-face o-bot4"></div>
+    </div>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="app-container">
+    <header class="header">
+      <h1 class="title">AETHER</h1>
+      <p class="subtitle">Organizador de Rotinas & Estilo de Vida</p>
+    </header>
+
+    <main class="cards-grid">
+      
+      <!-- Card: Estudo -->
+      <div class="card" onclick="openModal('modal-estudo')">
+        <div class="card-icon">📚</div>
+        <h2>Estudo</h2>
+        <p>Foco, aprendizado contínuo e desenvolvimento intelectual.</p>
+        <button class="card-btn">Ver Rotina</button>
+      </div>
+
+      <!-- Card: Trabalho -->
+      <div class="card" onclick="openModal('modal-trabalho')">
+        <div class="card-icon">💼</div>
+        <h2>Trabalho</h2>
+        <p>Projetos, produtividade e metas profissionais.</p>
+        <button class="card-btn">Ver Rotina</button>
+      </div>
+
+      <!-- Card: Lazer -->
+      <div class="card" onclick="openModal('modal-lazer')">
+        <div class="card-icon">🎬</div>
+        <h2>Lazer</h2>
+        <p>Descanso, filmes, passeios e momentos de desconexão.</p>
+        <button class="card-btn">Ver Rotina</button>
+      </div>
+
+      <!-- Card: Hobby -->
+      <div class="card" onclick="openModal('modal-hobby')">
+        <div class="card-icon">🎨</div>
+        <h2>Hobby</h2>
+        <p>Criatividade, música, arte e paixões pessoais.</p>
+        <button class="card-btn">Ver Rotina</button>
+      </div>
+
+      <!-- Card: Esportes -->
+      <div class="card" onclick="openModal('modal-esportes')">
+        <div class="card-icon">⚡</div>
+        <h2>Esportes</h2>
+        <p>Treinos, mobilidade, performance física e energia.</p>
+        <button class="card-btn">Ver Rotina</button>
+      </div>
+
+      <!-- Card: Saúde -->
+      <div class="card" onclick="openModal('modal-saude')">
+        <div class="card-icon">🥗</div>
+        <h2>Saúde</h2>
+        <p>Alimentação, hidratação, sono e bem-estar mental.</p>
+        <button class="card-btn">Ver Rotina</button>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODAIS -->
+
+  <!-- Modal Estudo -->
+  <div id="modal-estudo" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-estudo')">&times;</span>
+      <h2>📚 Rotina de Estudos</h2>
+      <ul class="routine-list">
+        <li><strong>08:00 - 09:30:</strong> Leitura técnica e documentação</li>
+        <li><strong>10:00 - 12:00:</strong> Prática de código/exercícios profundos (Deep Work)</li>
+        <li><strong>15:00 - 16:00:</strong> Cursos online e vídeo-aulas</li>
+        <li><strong>20:00 - 20:30:</strong> Revisão diária e anotações</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal Trabalho -->
+  <div id="modal-trabalho" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-trabalho')">&times;</span>
+      <h2>💼 Rotina de Trabalho</h2>
+      <ul class="routine-list">
+        <li><strong>09:00 - 09:30:</strong> Alinhamento diário e verificação de e-mails/tasks</li>
+        <li><strong>09:30 - 12:00:</strong> Execução de tarefas de alta prioridade</li>
+        <li><strong>14:00 - 16:30:</strong> Reuniões, entregas e chamadas de alinhamento</li>
+        <li><strong>17:30 - 18:00:</strong> Organização do backlog para o dia seguinte</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal Lazer -->
+  <div id="modal-lazer" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-lazer')">&times;</span>
+      <h2>🎬 Rotina de Lazer</h2>
+      <ul class="routine-list">
+        <li><strong>18:30 - 19:30:</strong> Assistir a séries, filmes ou ler literatura narrativa</li>
+        <li><strong>Final de Semana:</strong> Encontro com amigos, passeios ao ar livre</li>
+        <li><strong>Sexta à noite:</strong> Noite livre sem telas profissionais</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal Hobby -->
+  <div id="modal-hobby" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-hobby')">&times;</span>
+      <h2>🎨 Rotina de Hobbies</h2>
+      <ul class="routine-list">
+        <li><strong>Terças e Quintas (19:00):</strong> Prática de instrumento musical / Arte digital</li>
+        <li><strong>Sábados (14:00):</strong> Projetos pessoais de desenvolvimento de jogos/design</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal Esportes -->
+  <div id="modal-esportes" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-esportes')">&times;</span>
+      <h2>⚡ Rotina de Esportes</h2>
+      <ul class="routine-list">
+        <li><strong>06:30 - 07:30 (Seg/Qua/Sex):</strong> Treino de musculação/força</li>
+        <li><strong>07:00 - 07:40 (Ter/Qui):</strong> Corrida ao ar livre / Cardio</li>
+        <li><strong>Sábados:</strong> Esporte coletivo ou ciclismo prolongado</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal Saúde -->
+  <div id="modal-saude" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-saude')">&times;</span>
+      <h2>🥗 Rotina de Saúde</h2>
+      <ul class="routine-list">
+        <li><strong>Diariamente:</strong> Beber no mínimo 2.5L de água</li>
+        <li><strong>07:30:</strong> Café da manhã nutritivo e meditação guiada (10 min)</li>
+        <li><strong>22:30:</strong> Higiene do sono e desligamento de aparelhos eletrônicos</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Script JavaScript Integrado -->
+  <script>
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'flex';
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // Fechar modal clicando fora da caixa de conteúdo
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0a0a0c;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* DEGRADÊ EM TRÊS CORES PARA DETALHES E TEXTOS */
+:root {
+  --grad-1: #8a2be2; /* Roxo Violeta */
+  --grad-2: #00d2ff; /* Azul Neon */
+  --grad-3: #ff007f; /* Rosa Choque */
+  --gradient-main: linear-gradient(135deg, var(--grad-1), var(--grad-2), var(--grad-3));
+}
+
+/* LAYOUT CONTAINER */
+.app-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* CABEÇALHO */
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: #a0a0b0;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+/* GRID DE CARDS */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px;
+  cursor: pointer;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(0, 210, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.card p {
+  color: #b0b0c0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-btn {
+  background: var(--gradient-main);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.card-btn:hover {
+  opacity: 0.85;
+}
+
+/* ESTRUTURA DOS MODAIS */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #121218;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 35px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 0 40px rgba(255, 0, 127, 0.2);
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.8rem;
+  color: #a0a0b0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.routine-list {
+  list-style: none;
+}
+
+.routine-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d0d0e0;
+  font-size: 0.95rem;
+}
+
+.routine-list li strong {
+  color: #00d2ff;
+}
+
+/* OBJETOS 3D FLUTUANTES NO BACKGROUND */
+.bg-3d-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  perspective: 1000px;
+}
+
+.shape-3d {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+/* 1. CUBO 3D FLUTUANTE */
+.cube {
+  width: 80px;
+  height: 80px;
+  top: 15%;
+  left: 10%;
+  animation: floatCube 18s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: rgba(138, 43, 226, 0.15);
+  border: 1px solid rgba(138, 43, 226, 0.6);
+  box-shadow: inset 0 0 15px rgba(138, 43, 226, 0.3);
+}
+
+.front  { transform: translateZ(40px); }
+.back   { transform: rotateY(180deg) translateZ(40px); }
+.right  { transform: rotateY(90deg) translateZ(40px); }
+.left   { transform: rotateY(-90deg) translateZ(40px); }
+.top    { transform: rotateX(90deg) translateZ(40px); }
+.bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+@keyframes floatCube {
+  0% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+  50% { transform: translateY(-40px) rotateX(180deg) rotateY(180deg); }
+  100% { transform: translateY(0) rotateX(360deg) rotateY(360deg); }
+}
+
+/* 2. PIRÂMIDE 3D FLUTUANTE */
+.pyramid {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  right: 12%;
+  animation: floatPyramid 22s infinite ease-in-out;
+}
+
+.p-face {
+  position: absolute;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 86px solid rgba(0, 210, 255, 0.15);
+}
+
+.p-front  { transform: rotateY(0deg) translateZ(28px) rotateX(30deg); }
+.p-back   { transform: rotateY(180deg) translateZ(28px) rotateX(30deg); }
+.p-left   { transform: rotateY(-90deg) translateZ(28px) rotateX(30deg); }
+.p-right  { transform: rotateY(90deg) translateZ(28px) rotateX(30deg); }
+
+@keyframes floatPyramid {
+  0% { transform: translateY(0) rotateY(0deg) rotateZ(0deg); }
+  50% { transform: translateY(50px) rotateY(180deg) rotateZ(90deg); }
+  100% { transform: translateY(0) rotateY(360deg) rotateZ(0deg); }
+}
+
+/* 3. OCTAEDRO (DIAMANTE) 3D FLUTUANTE */
+.octahedron {
+  width: 90px;
+  height: 90px;
+  top: 70%;
+  left: 20%;
+  animation: floatOctahedron 15s infinite ease-in-out;
+}
+
+.o-face {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 75px solid rgba(255, 0, 127, 0.15);
+}
+
+.o-top1 { transform: rotateY(0deg) translateZ(25px) rotateX(35deg); }
+.o-top2 { transform: rotateY(90deg) translateZ(25px) rotateX(35deg); }
+.o-top3 { transform: rotateY(180deg) translateZ(25px) rotateX(35deg); }
+.o-top4 { transform: rotateY(270deg) translateZ(25px) rotateX(35deg); }
+
+@keyframes floatOctahedron {
+  0% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+  50% { transform: translateY(-60px) rotateX(180deg) rotateY(-180deg); }
+  100% { transform: translateY(0) rotateX(360deg) rotateY(0deg); }
+}
